@@ -6,7 +6,11 @@ This project was generated with:
 
 # Summary
 
-With this web application, you can create your own albums - music playback libraries. Add songs, sort playlists, modify their attributes, and listen to your favorite music without interruption. (This application has been developed with an academic character, the songs attached for their exemplification, have been songs previously acquired by the authors or songs of free distribution on the internet, they cannot be added to this application, songs that do not comply with copyright / acquisition and the laws that thus appear)
+With this web application, you can create your own albums - music playback libraries. Add songs, sort playlists, modify their attributes, and listen to your favorite music without interruption. 
+
+See how the app works: https://youtu.be/mqA-YUZm3Lk
+
+(This application has been developed with an academic character, the songs attached for their exemplification, have been songs previously acquired by the authors or songs of free distribution on the internet, they cannot be added to this application, songs that do not comply with copyright / acquisition and the laws that thus appear)
 
 # API:
 
