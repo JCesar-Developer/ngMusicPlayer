@@ -1,0 +1,57 @@
+<!-- CONTENEDOR PRINCIPAL -->
+<div style="width: 95%; background: #ffc038; padding-bottom: 1px;" class="container-fluid principal">
+
+    <!-- ---------------------------------------------------------------- -->
+    <!-- "FILA_1:" BARRA DE NAVEGACIÓN -->
+    <button class="dark" mat-raised-button (click)="onSetTheme('dark-theme')">DARK THEME</button>
+    <button class="light" mat-raised-button (click)="onSetTheme('light-theme')">LIGHT THEME</button>
+    <app-barra-nav
+        (enviarTextFilter)="textFilter=$event">
+    </app-barra-nav>
+    <!-- FIN "FILA_1:" BARRA DE NAVEGACIÓN -->
+
+    <!-- ---------------------------------------------------------------- -->
+    <!-- FILA 2: CONTENEDOR DE LOS ALBUMES -->
+    <app-album
+        [listaAlbums]="albums"
+        [textFilter]="textFilter"
+        (enviarAlbumSeleccionado)="albumSeleccionado=$event">
+    </app-album> <!-- FIN FILA 2: CONTENEDOR DE LOS ALBUMES -->
+
+    <!-- ---------------------------------------------------------------- -->
+    <!-- FILA 3: CONTENEDOR DE LAS CANCIONES Y LOS DETALLES -->
+    <div class="container-fluid mt-3">
+        <div class="container-fluid rounded contenedor-terceraFila">
+            <div class="row gy-2">
+
+                <!-- FILA_2 - COLUMNA_1: CONTENEDOR DE LAS CANCIONES -->
+                <div class="col-md">
+                    <app-lista-canciones
+                        [albumSeleccionado]="albumSeleccionado"
+                        [cancionSeleccionada]="cancionSeleccionada"
+                        (enviarCancionSeleccionada)="cancionSeleccionada=$event">
+                    </app-lista-canciones>
+                </div> <!-- FIN FILA_2 - COLUMNA_1: CONTENEDOR DE LAS CANCIONES -->
+
+                <!-- FILA_2 - COLUMNA_2: CONTENEDOR LOS DETALLES -->
+                <div class="col-md">
+                    <app-cancion
+                        [albumSeleccionado]="albumSeleccionado"
+                        [cancionSeleccionada]="cancionSeleccionada">
+                    </app-cancion>
+                </div> <!-- FIN FILA_2 - COLUMNA_2: CONTENEDOR LOS DETALLES -->
+
+            </div>
+        </div>
+    </div> <!-- /FILA 3: CONTENEDOR DE LAS CANCIONES Y LOS DETALLES -->
+
+    <!-- ---------------------------------------------------------------- -->
+    <!-- FILA 4: CONTENEDOR BARRA PLAYLIST -->
+    <app-barra-reproduccion
+        [albumSeleccionado]="albumSeleccionado"
+        [cancionSeleccionada]="cancionSeleccionada"
+        (enviarCancionSeleccionadaFromBarraReproduccion)="cancionSeleccionada=$event">
+    </app-barra-reproduccion>
+    <!-- /FILA 4: CONTENEDOR BARRA PLAYLIST -->
+
+</div> <!-- /CONTENEDOR PRINCIPAL -->

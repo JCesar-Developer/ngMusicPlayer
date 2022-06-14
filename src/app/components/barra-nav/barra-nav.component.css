@@ -1,0 +1,40 @@
+#searchContainer {
+    width: 180px;
+    height: 40px;
+    padding-left: 5px;
+    background-color: white;
+}
+
+.toolbar_tittle {
+    width: auto;
+    /* color: #383a46; */
+    font:bold;
+    font-size: large;
+    font-family: Helvetica, Arial, sans-serif;
+}
+    @media (max-width: 959px) {
+        .toolbar_tittle {
+            display: none;
+        }
+    }
+
+.toolbar_hamburguer {
+    display: none;
+    font-size: large;
+    color: #ccc5b9;
+    padding-left: 0px;
+}
+    @media (max-width: 959px) {
+      .toolbar_hamburguer {
+          display: block;
+      }
+    }
+
+/* MATERIALS CSS */
+.menu-without-scroll{
+    overflow: hidden;
+}
+.icon-display-big {
+    transform: scale(1.6);
+    margin: 10px;
+}

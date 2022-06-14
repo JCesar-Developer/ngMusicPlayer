@@ -1,0 +1,98 @@
+/* GENERAL */
+.cursorPointer:hover {
+    cursor: pointer;
+}
+
+/* PROGRESS BAR */
+.reproducto-container {
+    height: 80px;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: 1px;
+    border: solid var(--color-5);
+}
+.progress-container {
+    height: .35rem;
+    border-radius: .2rem;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: darkgray;
+}
+.progress {
+    background-color: #daa520;
+    width: 0;
+    height: 100%;
+}
+    .progress-container:hover .progress {
+        background-color: #f55050e5;
+    }
+
+.icon-display {
+    margin: 10px;
+}
+.icon-display-big {
+    transform: scale(1.6);
+    margin: 10px;
+}
+
+/* --- VOLUMEN --- */
+.volumeContainer {
+    width: 50%;
+}
+.volumeRange {
+    padding-left: 0px;
+    padding-right: 0px;
+    accent-color: darkgray;
+}
+.volumeRange:hover {
+    accent-color: #f55050e5;
+}
+    @media (max-width: 1450px) {
+        .volumeContainer {
+            width: 60%;
+        }
+    }
+    @media (max-width: 1250px) {
+        .volumeContainer {
+            width: 73%;
+        }
+    }
+    @media (max-width: 1050px) {
+        .volumeContainer {
+            width: 86%;
+        }
+    }
+    @media (max-width: 850px) {
+        .volumeContainer {
+            width: 100%;
+        }
+    }
+    @media (max-width: 767px) {
+        .songTitle {
+            display: none;
+        }
+    }
+    @media (max-width: 480px) {
+        .reproducto-container {
+            height: 155px;
+        }
+        .progressVolumen {
+            display: none !important;
+        }
+    }
+    @media (min-width: 480px) {
+        .showIf {
+            display: none !important;
+        }
+    }
+
+/*
+::ng-deep .mat-progress-bar-buffer {
+    background: darkgray;
+}
+::ng-deep .mat-progress-bar-fill::after {
+    background-color: #daa520;
+}
+::ng-deep .mat-progress-bar {
+    border-radius: .2rem;
+} */

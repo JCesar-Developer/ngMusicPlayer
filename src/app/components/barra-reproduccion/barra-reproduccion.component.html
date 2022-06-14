@@ -1,0 +1,124 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+<!-- FILA 4: CONTENEDOR BARRA PLAYLIST -->
+<div class="container-fluid rounded">
+    <!-- CONTROLADORES DE REPRODUCCIÓN -->
+    <div class="reproducto-container row container-fluid bg-dark my-3 rounded">
+
+        <!-- ----------------- PRIMERA COLUMNA ----------------- -->
+        <!-- TITULO DE CANCIÓN -->
+        <section class="songTitle col-3 my-auto">
+            <div *ngIf="cancionSeleccionada">
+                <h3 class="pb-0 mb-0">{{cancionSeleccionada.id}}. {{cancionSeleccionada.titulo}} </h3>
+                <p style="margin-bottom: 0px;">{{cancionSeleccionada.artista}} </p>
+            </div>
+        </section>
+        <!-- END TITULO DE CANCIÓN -->
+        <!-- ----------------- END PRIMERA COLUMNA ----------------- -->
+
+        <!-- ----------------- SEGUNDA COLUMNA ----------------- -->
+        <section class="col">
+            <div class="d-flex justify-content-center mx-auto">
+                <!-- BTN: SALTAR A CANCIÓN ANTERIOR -->
+                <mat-icon [ngStyle]="{'color': iconColor }"
+                class="icon-display cursorPointer" (click)="skip_toPrevious_single()">
+                    skip_previous
+                </mat-icon> <!-- END BTN: SALTAR A CANCIÓN ANTERIOR -->
+
+                <!-- BTN: PLAY & PAUSE CANCIÓN -->
+                <mat-icon [ngStyle]="{'color': iconColor }"
+                class="icon-display-big cursorPointer" (click)="playPauseSingle()">
+                    {{playPauseIcon}}
+                </mat-icon> <!-- END BTN: PLAY & PAUSE CANCIÓN -->
+
+                <!-- BTN: STOP CANCIÓN -->
+                <mat-icon [ngStyle]="{'color': iconColor }"
+                class="icon-display-big cursorPointer" (click)="stopSingle()">
+                    stop_circle
+                </mat-icon> <!-- END BTN: STOP CANCIÓN -->
+
+                <!-- BTN: SALTAR A SIGUIENTE CANCIÓN -->
+                <mat-icon [ngStyle]="{'color': iconColor }"
+                class="icon-display cursorPointer" (click)="skip_toNext_single()">
+                    skip_next
+                </mat-icon> <!-- END BTN: SALTAR A SIGUIENTE CANCIÓN -->
+
+
+
+            </div> <!-- BOTONES PRINCIPALES DE REPRODUCCIÓN -->
+
+            <!-- BARRA DE PROGRESO -->
+            <div class="row d-flex align-items-center">
+                <div #currentTime class="col-auto">00:00</div>
+
+                <div #progressBarRepContainer class="progress-container col cursorPointer"
+                (click)="setProgressValue($event)">
+                    <div #progressBarraReproduccion class="progress"></div>
+                </div>
+
+                <div #timeLeft class="col-auto">00:00</div>
+
+            </div><!--END BARRA DE PROFRESO -->
+
+        </section>
+        <!-- ----------------- END SEGUNDA COLUMNA ----------------- -->
+
+        <!-- ----------------- TERCERA COLUMNA ----------------- -->
+
+
+        <div class="col-3 progressVolumen progress-bar bg-transparent"
+            style="display: flex; align-items: flex-end;">
+
+            <div class="row volumeContainer">
+                <mat-icon [ngStyle]="{'color': muteBtnColor }"
+                class="volume col-3 pl-0 cursorPointer" (click)="muteVolumen()">{{volumenIcon}}</mat-icon>
+                <!-- BARRA DE CONTROL DE VOLÚMEN -->
+                <input #volumeButton class="col-md volumeRange cursorPointer" type="range" min="0" max="1" step="0.05"
+                (input)="changeVolumen(volumeButton)">
+                <!-- END BARRA DE CONTROL DE VOLÚMEN -->
+            </div>
+
+        </div>
+        <!-- ----------------- END TERCERA COLUMNA ----------------- -->
+
+        <!-- THIS SECTION APEARS JUST WHEN THE WIDTH IS LESS THAN 500 px -->
+        <section class="showIf row mx-0 pt-0" style="padding-left: 0px;padding-right: 0px;">
+
+            <!-- TITULO DE CANCIÓN -->
+            <div class="col px-0 d-flex align-items-center">
+                <div *ngIf="cancionSeleccionada">
+                    <h4 class="pb-0 mb-0">{{cancionSeleccionada.id}}. {{cancionSeleccionada.titulo}} </h4>
+                    <h5 style="margin-bottom: 0px;">{{cancionSeleccionada.artista}} </h5>
+                </div>
+            </div>
+            <!-- END TITULO DE CANCIÓN -->
+
+            <!-- BARRA DE CONTROL DE VOLÚMEN -->
+            <div class="col px-0 progress-bar bg-transparent">
+              <div class="row mx-0 px-2">
+                <mat-icon [ngStyle]="{'color': muteBtnColor }"
+                class="volume col-3 pl-0 cursorPointer" (click)="muteVolumen()">{{volumenIcon}}</mat-icon>
+                <input #volumeButton class="col volumeRange cursorPointer" type="range" min="0" max="1" step="0.05"
+                (input)="changeVolumen(volumeButton)">
+              </div>
+            </div>
+            <!-- END BARRA DE CONTROL DE VOLÚMEN -->
+
+        </section>
+        <!-- END THIS SECTION APEARS JUST WHEN THE WIDTH IS LESS THAN 500 px -->
+
+
+    </div> <!-- END CONTROLADORES DE REPRODUCCIÓN -->
+</div> <!-- /FILA 4: CONTENEDOR BARRA PLAYLIST -->
+
+
+<!--
+
+    <mat-progress-bar
+        class="progress-container col cursorPointer"
+        mode="determinate"
+        [color]="progressBarColor"
+        [value]="currentTimePercent"
+        (click)="setProgressValue($event)">
+    </mat-progress-bar>
+
+-->

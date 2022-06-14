@@ -1,0 +1,67 @@
+<mat-toolbar color="accent">
+
+    <!-- TITTLE + HAMBURGUER -->
+
+        <!-- SHOW IF: TOOLBAR HAMBURGUER DOESN'T HAVE ANY ITEM -->
+        <h1 class="toolbar_tittle"color="accent">Angular 180º</h1>
+        <!-- END SHOW IF: TOOLBAR HAMBURGUER DOESN'T HAVE ANY ITEM -->
+
+        <!-- SHOW IF: TOOLBAR HAMBURGUER HAS ITEMS -->
+        <button class="toolbar_hamburguer"
+        mat-button [matMenuTriggerFor]="menu">
+            <div class="d-flex align-items-center">
+                <mat-icon>menu</mat-icon><span>&nbsp;&nbsp;Angular 180º</span>
+            </div>
+        </button>
+
+        <mat-menu mat-icon #menu="matMenu" color="accent">
+            <mat-action-list class="menu-without-scroll" *ngFor="let item of items">
+                <mat-list-item mat-flat-button (click)="navigate(item.url)"
+                    [fxShow]="!item.showOnDesktop"
+                    [fxShow.sm]="!item.showOnTablet"
+                    [fxShow.xs]="!item.showOnMobile">
+
+                    <mat-icon color="primary"
+                        class="icon-display-big">{{item.icon}}</mat-icon>
+                    <span class="pr-4 font-weight-bold">{{item.label}}</span>
+
+                </mat-list-item>
+            </mat-action-list>
+        </mat-menu>
+        <!-- END SHOW IF: TOOLBAR HAMBURGUER HAS ITEMS -->
+
+    <!-- END TITTLE -->
+
+    <!-- TOOLBAR ITEMS -->
+    <div class="d-flex col justify-content-end">
+        <div *ngFor="let item of items">
+            <a href={{item.url}} target="_blank">
+                <button mat-button color="primary"
+                    [fxShow]="item.showOnDesktop"
+                    [fxShow.xs]="item.showOnMobile"
+                    [fxShow.sm]="item.showOnTablet">
+
+                    <mat-icon color="primary" class="icon-display-big">{{item.icon}}</mat-icon>
+                    <span class="pr-4 font-weight-bold">{{item.label}}</span>
+                    <mat-divider></mat-divider>
+
+                </button>
+            </a>
+        </div>
+    </div>
+    <!-- END TOOLBAR ITEMS -->
+
+    <!-- SEARCH CONTAINER -->
+    <div class="input-group row d-flex justify-content-end" style="width: auto;">
+        <div class=" col form-outline" style="padding-right: 0px;">
+            <input type="text" class="form-control" name="textFilter"
+                placeholder="Search..." [(ngModel)]="textFilter" (ngModelChange)="onSearchChange(textFilter)"/>
+        </div>
+        <button type="button" class="col-auto p-0 btn btn-primary border-0"
+        style="margin-left: -2px;margin-right: 15px;width: 45px;">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    <!-- END SEARCH CONTAINER -->
+
+</mat-toolbar>

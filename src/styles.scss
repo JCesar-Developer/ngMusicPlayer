@@ -1,0 +1,407 @@
+@import '@angular/material/theming';
+@include mat-core();
+
+$my-primary-color:(
+    50 : #eaecf5,
+    100 : #cbcfe6,
+    200 : #a8afd5,
+    300 : #858ec4,
+    400 : #6a76b8,
+    500 : #505eab,
+    600 : #4956a4,
+    700 : #404c9a,
+    800 : #374291,
+    900 : #273180,
+    A100 : #c3c9ff,
+    A200 : #909bff,
+    A400 : #5d6dff,
+    A700 : #4356ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+// $my-background-color:(
+//         900 : #0d1317,
+// );
+/* For use in src/lib/core/theming/_palette.scss */
+$my-accent-color: (
+    50 : #fffaed,
+    100 : #fff4d1,
+    200 : #ffecb3,
+    300 : #ffe494,
+    400 : #ffdf7d,
+    500 : #ffd966,
+    600 : #ffd55e,
+    700 : #ffcf53,
+    800 : #ffca49,
+    900 : #ffc038,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #fff5e1,
+    A700 : #ffedc8,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+    
+);
+/* For use in src/lib/core/theming/_palette.scss */
+$my-warn-color: (
+    50 : #faf4f7,
+    100 : #f2e4eb,
+    200 : #ead3de,
+    300 : #e2c1d1,
+    400 : #dbb3c7,
+    500 : #d5a6bd,
+    600 : #d09eb7,
+    700 : #ca95ae,
+    800 : #c48ba6,
+    900 : #ba7b98,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffd9ea,
+    A700 : #ffbfdd,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$my-primary2-color:(
+    50 : #eafae2,
+    100 : #caf3b7,
+    200 : #a6eb88,
+    300 : #82e258,
+    400 : #68dc34,
+    500 : #4dd610,
+    600 : #46d10e,
+    700 : #3dcc0c,
+    800 : #34c609,
+    900 : #25bc05,
+    A100 : #e9ffe6,
+    A200 : #bcffb3,
+    A400 : #8fff80,
+    A700 : #79ff66,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+// $my-background-color:(
+//         900 : #0d1317,
+// );
+/* For use in src/lib/core/theming/_palette.scss */
+$my-accent2-color: (
+    50 : #e7e4ee,
+    100 : #c2bbd6,
+    200 : #9a8eba,
+    300 : #72609e,
+    400 : #533e8a,
+    500 : #351c75,
+    600 : #30196d,
+    700 : #281462,
+    800 : #221158,
+    900 : #160945,
+    A100 : #917cff,
+    A200 : #6649ff,
+    A400 : #3b16ff,
+    A700 : #2800fc,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+    
+);
+/* For use in src/lib/core/theming/_palette.scss */
+$my-warn2-color: (
+    50 : #f9e0e0,
+    100 : #f0b3b3,
+    200 : #e68080,
+    300 : #db4d4d,
+    400 : #d42626,
+    500 : #cc0000,
+    600 : #c70000,
+    700 : #c00000,
+    800 : #b90000,
+    900 : #ad0000,
+    A100 : #ffd7d7,
+    A200 : #ffa4a4,
+    A400 : #ff7171,
+    A700 : #ff5858,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+//definimos paleta 1
+$my-palette-primary:mat-palette($my-primary-color);
+$my-palette-accent:mat-palette($my-accent-color);
+$my-palette-warn:mat-palette($my-warn-color);
+
+//definimos paleta 2
+$my-palette2-primary:mat-palette($my-primary-color);
+$my-palette2-accent:mat-palette($my-accent-color);
+$my-palette2-warn:mat-palette($my-warn-color);
+
+
+$mat-dark-theme: mat-dark-theme($my-palette-primary,$my-palette-accent,$my-palette-warn);
+$mat-light-theme: mat-light-theme($my-palette2-primary,$my-palette2-accent,$my-palette2-warn);
+
+//tema 1 propio
+$my-theme:mat-dark-theme((
+    color:(
+        primary:$my-palette-primary,
+        accent:$my-palette-accent,
+        warn:$my-palette-warn
+    )
+));
+
+//tema 2 propio
+$my-theme:mat-light-theme((
+    color:(
+        primary:$my-palette2-primary,
+        accent:$my-palette2-accent,
+        warn:$my-palette2-warn
+    )
+));
+
+@include angular-material-theme($mat-dark-theme);
+
+.light-theme{
+    @include angular-material-theme($mat-light-theme);
+    background:#fefae0;
+    color: #faedcd;
+    // accent:rgb(173, 12, 173);
+    .principal{
+        background: #b2967d !important;
+    }
+    .mat-button{
+        background: #fefae0 !important;
+        color: #b2967d !important;
+        margin: 1px;
+        width: 84%;
+    }
+   
+    // .mat-button span{
+    //     color: #39403c !important;
+    // }
+    .mat-icon{
+        color: #b2967d  !important;
+    }
+    
+    .mat-toolbar{
+        background: #d8ceb0 !important;
+    }
+    .mat-card-title{
+        background: #faedcd !important;
+    }
+    .mat-card {
+        background:#faedcd !important;
+    }
+    .mat-card-content {
+        background:#b2967d !important;
+        color: #faedcd !important;
+    }
+    .toolbar_tittle {
+        width: auto;
+        color: #b2967d ;
+        font:bold;
+        font-size: large;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+        @media (max-width: 959px) {
+            .toolbar_tittle {
+                display: none;
+            }
+        }
+
+    .component-tittle {
+        background-color: #faedcd !important;    
+        color: #b2967d  !important;    
+    }
+    .btn-primary{
+        background:#5c4028 !important;
+    }
+    .mat-card-title button{
+        background-color: #fefae0 !important;
+        color:#b2967d !important;
+    }    
+    .mat-list p{
+        color: #fefae0 !important
+
+    }
+    .bg-dark{
+        background:#494642 !important;
+
+    }
+    .light{
+        border: solid 2px rgb(14, 235, 14);
+        background: #403d39;
+        color: #fefae0;
+
+    }
+    // .icon-display{
+    //     color: #fefae0 !important;
+    // }
+   
+
+
+        
+}
+.dark-theme{
+    @include angular-material-theme($mat-dark-theme);
+    background:#252422;
+    color: #ccc5b9;
+    // accent:rgb(173, 12, 173);
+    .mat-button{
+        background: #ccc5b9 !important;
+        color: #403d39 !important;
+        margin: 1px;
+        width: 84%;
+    }
+    .principal{
+        background: #403d39 !important;
+    }
+    // .mat-button span{
+    //     color: #39403c !important;
+    // }
+    .mat-icon{
+        color: #403d39 !important;
+    }
+    .bg-dark{
+        background: #1a1918 !important;
+    }
+    .mat-toolbar{
+        background: #ccc5b9 !important;
+    }
+    .mat-card-title{
+        background: #403d39 !important;
+    }
+    .mat-card {
+        background:#ccc5b9 !important;
+    }
+    .mat-card-content {
+        background:#fffcf2 !important;
+        color: #403d39 !important;
+    }
+    .toolbar_tittle {
+        width: auto;
+        color: #403d39;
+        font:bold;
+        font-size: large;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+        @media (max-width: 959px) {
+            .toolbar_tittle {
+                display: none;
+            }
+        }
+
+    .component-tittle {
+        background-color: #403d39 !important;    
+        color: #ccc5b9  !important;    
+    }
+    .btn-primary{
+        background:#403d39 !important;
+    }
+    .mat-card-title button{
+        background-color: #ccc5b9 !important;
+        color:#403d39 !important;
+    }    
+    .mat-list p{
+        color: #403d39 !important
+        
+    }
+    .dark{
+        border: solid 2px rgb(14, 235, 14);
+        background: #fefae0;
+        color: #252422;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+// //aplicamos hacia nuestra aplicacion
+// @include angular-material-theme($my-theme);

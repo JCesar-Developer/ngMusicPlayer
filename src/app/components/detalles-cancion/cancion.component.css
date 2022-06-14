@@ -1,0 +1,39 @@
+.contenedorDetails .card-body{
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+    @media (max-width: 767px) {
+        .contenedorDetails{
+            height: 200px;
+        }
+        .contenedorDetails .card-body{
+            height: 120px;
+        }
+    }
+
+/* --- MATERIALS --- */
+.mat-card-content ul li span {
+    color: var(--text-color-1);
+}
+.card-header.mat-card-title {
+    height: 55px;
+}
+.mat-form-field {
+   margin-top: -20px;
+}
+
+.card-header {
+    background-color: #ffc038;
+
+}
+.card-body{
+    color: #ffc038;
+
+}
+
+.card-header h4 {
+    font-size: large;
+    color: #273180;
+
+}

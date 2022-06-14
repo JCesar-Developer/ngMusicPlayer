@@ -1,0 +1,47 @@
+.contenedorPlaylist .card-body{
+    height: 200px;
+    overflow-y: scroll;
+}
+    @media (max-width: 767px) {
+        .contenedorPlaylist{
+            height: 200px;
+        }
+        .contenedorPlaylist .card-body{
+            height: 120px;
+        }
+    }
+
+/* --- BOTTON ORDER --- */
+.btnOrder {
+    background-color: black;
+    color: white;
+    width: auto;
+}
+
+    @media (max-width: 480px) {
+        .btnOrder span {
+            display: none;
+        }
+    }
+
+
+/* --- MATERIALS --- */
+.mat-action-list p {
+    color: var(--text-color-1);
+}
+.card-header.mat-card-title {
+    max-height: 55px;
+}
+
+
+.card-header {
+    background-color: #ffc038;
+
+}
+
+.card-header h4 {
+    font-size: large;
+    color: #273180;
+
+}
+

@@ -1,0 +1,34 @@
+[
+  {
+    "label": "GitHub",
+    "icon": "backup icon",
+    "url": "https://github.com/spuchades/FP.211-Aplicacion-frontend-dinamica-con-frameworks-avanzados.git",
+    "showOnMobile": false,
+    "showOnTablet": false,
+    "showOnDesktop": true
+  },
+  {
+    "label": "Trello",
+    "icon": "pageview icon",
+    "url": "https://trello.com/b/RCCqoFtc/p10angular",
+    "showOnMobile": false,
+    "showOnTablet": false,
+    "showOnDesktop": true
+  },
+  {
+    "label": "Drive",
+    "icon": "room icon",
+    "url": "https://drive.google.com/drive/folders/1L6VWmx-PwgL6J7kCxT0fj93r1xFKDswQ?usp=sharing",
+    "showOnMobile": false,
+    "showOnTablet": true,
+    "showOnDesktop": true
+  },
+  {
+    "label": "Site",
+    "icon": "stars icon",
+    "url": "https://sites.google.com/uoc.edu/angular180/home",
+    "showOnMobile": false,
+    "showOnTablet": true,
+    "showOnDesktop": true
+  }
+]

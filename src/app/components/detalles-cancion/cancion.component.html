@@ -1,0 +1,271 @@
+<!-- FILA_2 - COLUMNA_2: CONTENEDOR LOS DETALLES -->
+<mat-card class="contenedorDetails card bg-dark">
+
+    <!-- CARD TITLE -->
+    <mat-card-title class="card-header d-flex justify-content-between">
+        <h4 class="component-tittle text-center" style="margin: auto 0;">
+            <strong>Detalles</strong>
+        </h4>
+
+        <button *ngIf="albumSeleccionado" class="btn btnOrder" (click)="changeAddNewSong()"
+        style="align-self: center; background-color: #424242; color: #ffc038;">
+            <span>Agregar canción</span>
+        </button>
+
+    </mat-card-title>
+    <!-- END CARD TITLE -->
+
+    <!-- CARD BODY -->
+    <mat-card-content class="card-body">
+
+        <!-- LOADING SPINNER -->
+        <div *ngIf="loading" class="d-flex justify-content-center align-items-center" style="height: 100%;">
+            <div class="spinner-border text-secondary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <!-- END LOADING SPINNER -->
+
+        <!-- SHOW SONG DETAILS -->
+        <mat-card-content style="margin-bottom: 0" *ngIf="cancionSeleccionada && !loading">
+
+            <form *ngIf="!addNewSong">
+
+                <!-- BOTONES DE SELECCIÓN: LISTA || UNA PÁGINA -->
+                <mat-radio-group labelPosition="before" class="row pl-4 pt-3"
+                    [(ngModel)]="readMode" [ngModelOptions]="{standalone:
+                    true}">
+
+                    <label class="col-auto" >LECTURA:</label>
+                    <mat-radio-button class="col-auto" value='list'>Lista</mat-radio-button>
+                    <mat-radio-button class="col-auto" value='onePage'>Una página</mat-radio-button>
+
+                </mat-radio-group> <!-- END BOTONES DE SELECCIÓN: LISTA || UNA PÁGINA -->
+
+                <!-- CONTENEDOR DETALLES CANCIÓN -->
+                <ng-container *ngIf="readMode === 'list'">
+
+                    <form [formGroup]="songService.formUpdate">
+                      <ul class="mt-3">
+
+                          <!-- ID -->
+                          <input type="hidden" formControlName="id" [ngModel]="cancionSeleccionada.id">
+                          <!-- END ID -->
+
+                          <li> <!-- TITULO -->
+                              <label style="font-weight: bold;">Titulo:</label>
+                              <mat-form-field class="ml-3" floatLabel="never">
+                                  <input formControlName="titulo" matInput [ngModel]="cancionSeleccionada.titulo">
+                                  <mat-error>Este campo es requerido.</mat-error>
+                              </mat-form-field>
+                          </li> <!-- END TITULO -->
+
+                          <li> <!-- ARTISTA -->
+                              <label style="font-weight: bold;">Artista:</label>
+                              <mat-form-field class="ml-3" floatLabel="never">
+                                  <input formControlName="artista" matInput [ngModel]="cancionSeleccionada.artista">
+                                  <mat-error>Este campo es requerido.</mat-error>
+                              </mat-form-field>
+                          </li> <!-- END ARTISTA -->
+
+                          <li> <!-- AÑO -->
+                              <label style="font-weight: bold;">Año:</label>
+                              <mat-form-field class="ml-3" floatLabel="never">
+                                  <input formControlName="ano" matInput [ngModel]="cancionSeleccionada.ano">
+                              </mat-form-field>
+                          </li> <!-- END AÑO -->
+
+                          <li> <!-- ALBUM -->
+                              <label style="font-weight: bold;">Album:</label>
+                              <mat-form-field class="ml-3" floatLabel="never">
+                                  <input formControlName="album" matInput [ngModel]="cancionSeleccionada.album">
+                              </mat-form-field>
+                          </li> <!-- END ALBUM -->
+
+                          <li> <!-- GENERO -->
+                              <label style="font-weight: bold;">Género:</label>
+                              <mat-form-field class="ml-3" floatLabel="never">
+                                  <input formControlName="genero" matInput [ngModel]="cancionSeleccionada.genero">
+                                  <mat-error>Este campo es requerido.</mat-error>
+                              </mat-form-field>
+                          </li> <!-- END GENERO -->
+
+                          <li> <!-- BIOGRAFÍA -->
+                              <label style="font-weight: bold;">Biografia:</label>
+                              <mat-form-field class="ml-3" floatLabel="never" style="width: 80%;">
+                                  <textarea matInput
+                                            cdkTextareaAutosize
+                                            formControlName="biografia"
+                                            [ngModel]="cancionSeleccionada.biografia"
+                                            #autosize="cdkTextareaAutosize"
+                                            cdkAutosizeMinRows="1"
+                                            cdkAutosizeMaxRows="3">
+                                    </textarea>
+                              </mat-form-field>
+                          </li> <!-- END BIOGRAFÍA -->
+
+                          <li> <!-- INPUT SRC -->
+                              <label style="font-weight: bold;">SRC:</label>
+                              <mat-form-field class="ml-3" floatLabel="never" style="width: 80%;">
+                                  <textarea matInput
+                                            cdkTextareaAutosize
+                                            formControlName="src"
+                                            [ngModel]="cancionSeleccionada.src"
+                                            #autosize="cdkTextareaAutosize"
+                                            cdkAutosizeMinRows="1"
+                                            cdkAutosizeMaxRows="2">
+                                  </textarea>
+                                  <mat-error>Este campo es requerido. Por favor, coloque una dirección válida.</mat-error>
+                              </mat-form-field>
+                          </li> <!-- END INPUT SRC -->
+
+                          <!-- TYPE -->
+                          <input type="hidden" formControlName="type" [ngModel]="cancionSeleccionada.type">
+                          <!-- END TYPE -->
+
+                          <mat-checkbox>Agregar a favoritos</mat-checkbox>
+                      </ul>
+
+                      <div class="d-flex justify-content-end  mr-4 mb-2" style="margin-top: -10px;">
+                          <button class="px-4" type="submit" mat-flat-button color="accent"
+                          (click)="updateSong()" [disabled]="songService.formUpdate.invalid">Guardar cambios</button>
+                      </div>
+
+                    </form>
+
+                </ng-container> <!-- FIN CONTENEDOR DETALLES CANCIÓN -->
+
+                <!-- CONTENEDOR DETALLES CANCIÓN -->
+                <ng-container *ngIf="readMode === 'onePage'">
+                    <div class="pl-4 pr-4 mt-2 mb-2">
+                        <span style="color: var(--text-color-1); font-weight:
+                            bold;">Titulo:</span>
+                        <span style="color: var(--text-color-2);">
+                            {{cancionSeleccionada.titulo}} || </span>
+                        <span style="color: var(--text-color-1); font-weight:
+                            bold;">Artista:</span>
+                        <span style="color: var(--text-color-2);">
+                            {{cancionSeleccionada.artista}} || </span>
+                        <span style="color: var(--text-color-1); font-weight:
+                            bold;">Año:</span>
+                        <span style="color: var(--text-color-2);">
+                            {{cancionSeleccionada.ano}} || </span>
+                        <span style="color: var(--text-color-1); font-weight:
+                            bold;">Album:</span>
+                        <span style="color: var(--text-color-2);">
+                            {{cancionSeleccionada.album}} || </span>
+                        <span style="color: var(--text-color-1); font-weight:
+                            bold;">Género:</span>
+                        <span style="color: var(--text-color-2);">
+                            {{cancionSeleccionada.genero}} || </span>
+                        <span style="color: var(--text-color-1); font-weight:
+                            bold;">Biografia:</span>
+                        <span style="color: var(--text-color-2);">
+                            {{cancionSeleccionada.biografia}}</span>
+
+                        <br><br>
+
+                        <mat-checkbox>Agregar a favoritos</mat-checkbox>
+                    </div>
+                </ng-container> <!-- FIN CONTENEDOR DETALLES CANCIÓN -->
+
+            </form>
+
+        </mat-card-content>
+        <!-- END SHOW SONG DETAILS -->
+
+        <!-- ADD NEW SONG -->
+        <mat-card-content *ngIf="!loading">
+
+            <form *ngIf="addNewSong" [formGroup]="songService.formSave">
+                <ul class="mt-3">
+
+                    <!-- ID -->
+                    <input type="hidden" formControlName="id" [ngModel]="null">
+                    <!-- END ID -->
+
+                    <li> <!-- TITULO -->
+                        <label style="font-weight: bold;">Titulo:</label>
+                        <mat-form-field class="ml-3" floatLabel="never">
+                            <input formControlName="titulo" matInput placeholder="Escribe el título">
+                            <mat-error>Este campo es requerido.</mat-error>
+                        </mat-form-field>
+                    </li> <!-- END TITULO -->
+
+                    <li> <!-- ARTISTA -->
+                        <label style="font-weight: bold;">Artista:</label>
+                        <mat-form-field class="ml-3" floatLabel="never">
+                            <input formControlName="artista" matInput placeholder="Escribe el artista">
+                            <mat-error>Este campo es requerido.</mat-error>
+                        </mat-form-field>
+                    </li> <!-- END ARTISTA -->
+
+                    <li> <!-- AÑO -->
+                        <label style="font-weight: bold;">Año:</label>
+                        <mat-form-field class="ml-3" floatLabel="never">
+                            <input formControlName="ano" matInput placeholder="Escribe el año de publi.">
+                        </mat-form-field>
+                    </li> <!-- END AÑO -->
+
+                    <li> <!-- ALBUM -->
+                        <label style="font-weight: bold;">Album:</label>
+                        <mat-form-field class="ml-3" floatLabel="never">
+                            <input formControlName="album" matInput placeholder="Escribe el album">
+                        </mat-form-field>
+                    </li> <!-- END ALBUM -->
+
+                    <li> <!-- GENERO -->
+                        <label style="font-weight: bold;">Género:</label>
+                        <mat-form-field class="ml-3" floatLabel="never">
+                            <input formControlName="genero" matInput placeholder="Escribe el género">
+                            <mat-error>Este campo es requerido.</mat-error>
+                        </mat-form-field>
+                    </li> <!-- END GENERO -->
+
+                    <li> <!-- BIOGRAFÍA -->
+                        <label style="font-weight: bold;">Biografia:</label>
+                        <mat-form-field class="ml-3" floatLabel="never" style="width: 80%;">
+                            <textarea matInput
+                                      formControlName="biografia"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="3">Escribe una pequeña biografía sobre el album/canción.</textarea>
+                        </mat-form-field>
+                    </li> <!-- END BIOGRAFÍA -->
+
+                    <li> <!-- INPUT SRC -->
+                        <label style="font-weight: bold;">SRC:*</label>
+                        <mat-form-field class="ml-3" floatLabel="never" style="width: 80%;">
+                            <textarea matInput
+                                      formControlName="src"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="2">Coloqué aquí la ubicación de su canción. *</textarea>
+                            <mat-error>Este campo es requerido. Por favor, coloque una dirección válida.</mat-error>
+                        </mat-form-field>
+                    </li> <!-- END INPUT SRC -->
+
+                    <!-- TYPE -->
+                    <input type="hidden" formControlName="type">
+                    <!-- END TYPE -->
+
+                    <mat-checkbox>Agregar a favoritos</mat-checkbox>
+
+                </ul>
+
+                <div class="d-flex justify-content-end  mr-4 mb-2" style="margin-top: -10px;">
+                    <button class="mr-2 px-4" mat-flat-button color="warn"
+                    (click)="cancelAddNewSong()">Cancelar</button>
+                    <button class="px-4" type="submit" mat-flat-button color="accent"
+                    (click)="saveSong()" [disabled]="songService.formSave.invalid">Agregar</button>
+                </div>
+
+            </form>
+        </mat-card-content>
+        <!-- END ADD NEW SONG -->
+
+    </mat-card-content> <!-- END CARD BODY -->
+
+</mat-card> <!-- FIN FILA_2 - COLUMNA_2: CONTENEDOR LOS DETALLES -->

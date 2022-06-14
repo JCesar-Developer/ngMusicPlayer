@@ -1,0 +1,40 @@
+<!-- FILA_2 - COLUMNA_1: CONTENEDOR DE LAS CANCIONES -->
+<mat-card class="contenedorPlaylist card bg-dark">
+
+    <!-- CARD TITTLE -->
+    <mat-card-title class="card-header d-flex justify-content-between">
+        <h4 class="component-tittle text-center" style="margin: auto 0; ">
+            <strong>PlayList</strong>
+        </h4>
+        <button *ngIf="albumSeleccionado" class="btn btnOrder" (click)="changeSortByTittle()"
+        style="align-self: center; background-color: #424242; color: #ffc038;">
+            <span>order by: </span>{{optionSort.order}}
+        </button>
+    </mat-card-title><!-- END CARD TITTLE -->
+
+    <!-- CARD BODY -->
+    <mat-card-content class="card-body">
+
+        <!-- CONTENEDOR DE LISTADO DE CANCIONES -->
+        <mat-card-content *ngIf="albumSeleccionado">
+
+            <ng-container *ngIf="albumSeleccionado.playlist.length > 0; else elseBlock">
+
+                <mat-action-list *ngFor="let cancion of albumSeleccionado.playlist | sortByTitle: optionSort.order" class="mb-0">
+                    <mat-list-item (click)="onSelectSingle(cancion, textSongSelected)" [class.selected]="cancion===cancionSeleccionada"
+                    (click)="enviarCancionSeleccionadaHaciaAppComponent()">
+                        <p id="{{cancion.id}}" #textSongSelected [ngStyle]="{'color': colorCancionSeleccionada }">{{cancion.id}}. {{cancion.titulo}}, {{cancion.ano}}</p>
+                    </mat-list-item>
+                </mat-action-list>
+
+            </ng-container>
+
+            <ng-template #elseBlock>
+                <h3 class="mt-1 ml-3" [ngStyle]="{'color': colorCancionSeleccionada }">Aún, no hay canciones agregadas</h3>
+            </ng-template>
+
+        </mat-card-content> <!-- FIN DE CONTENEDOR DE LISTADO DE CANCIONES -->
+
+    </mat-card-content> <!-- END CARD BODY -->
+
+</mat-card> <!-- END FILA_2 - COLUMNA_1: CONTENEDOR DE LAS CANCIONES -->

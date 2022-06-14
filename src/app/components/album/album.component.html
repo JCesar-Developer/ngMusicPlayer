@@ -1,0 +1,117 @@
+<!-- FILA_2 - COLUMNA_1: CONTENEDOR DE LAS CANCIONES -->
+<div class="container-fluid">
+
+    <!-- MAT-CARD -->
+    <mat-card class="card" color="warn">
+
+        <!-- CARD TITTLE -->
+        <mat-card-title class="component-tittle card-header d-flex">
+
+            <h4 class="mr-auto component-tittle text-center" style="margin: auto 0;">
+                <strong>Albums</strong>
+            </h4>
+
+            <div *ngIf="loading" class="mr-3" style="height: 100%;">
+                <div class="spinner-border text-secondary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+
+            <button class="btn btnOrder" (click)="addNewAmbum()"
+            style="align-self: center; background-color: #424242; color: #ffc038;">
+                <span>Agregar álbum</span>
+            </button>
+
+        </mat-card-title>
+        <!-- END CARD TITTLE -->
+
+        <!-- CARD BODY -->
+        <mat-card class="cardContainer" style="overflow-y: scroll;">
+            <div class="container-fluid">
+
+                <!-- CONTENEDOR ALBUMES -->
+                <div class="contenedorAlbumes">
+
+                    <!-- CONTENEDOR ALBUM -->
+                    <ng-container *ngFor="let album of albums | filter: textFilter; let i = 'index';">
+                        <mat-card-content class="contenedorAlbum" (click)="onSelectAlbum(album)"
+                        [class.selected]="album===albumSeleccionado" (click)="enviarPlaylistSeleccionadaHaciaAppComponent()">
+
+                            <!-- FORMULARIO: TITULO & NOMBRE DEL ALBUM-->
+                            <form #formAlbum="ngForm" (submit)="updateAlbum( formAlbum.value )">
+                                <div #inputId class="txtAlbum" style="text-align: center;">
+
+                                    <!-- IMAGEN DEL ALBUM -->
+                                    <div>
+                                        <img class="imgAlbum" src="{{album.img}}">
+                                        <button #modalBtn id="{{i}}" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" (click)="saveModalId( modalBtn.id )"
+                                        style="background: white; border-radius: 10px;">
+                                            <img style="background-color: white;" src="../../../assets/img/camera.png"
+                                            alt="Error al cargar la imagen"width="20px" height="20px" >
+                                        </button>
+                                    </div>
+                                    <!-- END IMAGEN DEL ALBUM -->
+
+                                    <!-- ID -->
+                                    <input class="mt-3" type="hidden" name="id" [ngModel]="album.id">
+                                    <!-- END ID -->
+
+                                    <!-- INPUT NOMBRE -->
+                                    <input class="inputStyle" type="text" name="nombre" [ngModel]="album.nombre"
+                                    placeholder="Coloque nombre" style="font-weight: bold;">
+                                    <!-- END INPUT NOMBRE -->
+
+                                    <!-- INPUT NOMBRE -->
+                                    <input class="inputStyle" type="text" name="autor" [ngModel]="album.autor" placeholder="Coloque autor">
+                                    <!-- END INPUT NOMBRE -->
+
+                                    <button #submitBtn type="submit" class="inputBtn"
+                                        color="accent">Guardar cambios
+                                    </button>
+
+                                </div>
+                            </form>
+                            <!-- END FORMULARIO: TITULO & NOMBRE DEL ALBUM-->
+
+                        </mat-card-content><!-- END CONTENEDOR ALBUM-->
+                    </ng-container><!-- END CONTENEDOR ALBUM -->
+
+                </div> <!-- END CONTENEDOR ALBUMES -->
+
+
+                <!-- MODAL: CAMBIAR IMAGEN -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+
+                                <!-- FORMULARIO: URL -->
+                                <form #formImg="ngForm" (submit)="updateImg( formImg.value )">
+
+                                    <div class="mb-3">
+                                        <h4 style="color: black; margin-bottom: 5px;">URL (Solo acepta imagenes):</h4>
+                                        <input class="form-control" ngModel type="text" name="img" placeholder="Por favor, coloqué una dirección de URL válida">
+                                    </div>
+
+                                    <!-- BTN: OK & CANCEL -->
+                                    <div class="d-flex justify-content-end">
+                                        <button type="button" class="btn btn-secondary mr-2" data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Cambiar</button>
+                                    </div>
+                                    <!-- END BTN: OK & CANCEL -->
+
+                                </form>
+                                <!-- END FORMULARIO: URL -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- MODAL: CAMBIAR IMAGEN -->
+
+            </div>
+        </mat-card> <!-- END CARD BODY -->
+
+    </mat-card> <!-- END MAT-CARD -->
+</div> <!-- END FILA_2 - COLUMNA_1: CONTENEDOR DE LAS CANCIONES -->

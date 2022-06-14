@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "producto4-angular"
+  },
+  "targets": {
+    "producto4-angular": {
+      "hosting": {
+        "Angular180": [
+          "producto4-angular"
+        ]
+      }
+    }
+  }
+}
