@@ -1,27 +1,17 @@
 # Angular180
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+This project was generated with:
+- FRONT: [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+- BACK: [Firestore](https://firebase.google.com/docs) Web version 9.
 
-## Development server
+# Summary
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+With this web application, you can create your own albums - music playback libraries. Add songs, sort playlists, modify their attributes, and listen to your favorite music without interruption. (This application has been developed with an academic character, the songs attached for their exemplification, have been songs previously acquired by the authors or songs of free distribution on the internet, they cannot be added to this application, songs that do not comply with copyright / acquisition and the laws that thus appear)
 
-## Code scaffolding
+# API:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- add | modify | delete -> Albums.
+- add | delete | listen -> Songs into an album.
+- Modify song's atributes.
+- Sort the playlist.
+- Search albums and songs.
